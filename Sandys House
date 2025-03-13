@@ -2,22 +2,17 @@ import pygame
 
 
 pygame.init()
-screen = pygame.display.set_mode((800,600))
-pygame.display.set_caption("Farm Simulator")
-
-# Colors
-YELLOW = (255, 255, 0)
-RED = (255, 0, 0)
-WHITE = (255, 255, 255)
-DARK_GRAY = (50, 50, 50)
-BROWN = (80, 50, 0)
-
+screen = pygame.display.set_mode((1000,800))
+pygame.display.set_caption("Sandys House")
+BLUE = (3, 165, 252)
 
 #SandyChar Class
 
+
 #Sandy House Class
-def collision(bx, by, px, py): #bx, by is mouse, px, py is plant position
+def collision(bx, by, px, py): #bx, by is mouse, px, py is house position
     print(bx, by, px, py)
+    
     if bx > px and bx<px+30 and by>py and by<py+30: #simple bounding box collision
         return True
     else: 
@@ -26,7 +21,7 @@ def collision(bx, by, px, py): #bx, by is mouse, px, py is plant position
 running = True
 while running: #game loop##########################################################
     
-      #input/event section----------------------------------------
+    #input/event section----------------------------------------
     for event in pygame.event.get():
 
         if event.type == pygame.QUIT: #quit game if x is pressed
@@ -36,17 +31,10 @@ while running: #game loop#######################################################
             mouse_x, mouse_y = event.pos #grab position
     
     #render section--------------------------------------------------
-    screen.fill(BROWN)  # Clear the screen
-
-    pygame.draw.rect(screen, DARK_GRAY, (0, 0, sidebar_width, 600))  # Draw the sidebar
-
-    pygame.draw.rect(screen, YELLOW, (cornx, corny, 30, 30))  # Corn button
-    pygame.draw.rect(screen, RED, (tomatox, tomatoy, 30, 30))  # Tomato button
-
+    screen.fill(BLUE)  # Clear the screen
+    
+    pygame.display.flip()
     
 
 pygame.quit()
-
-    
-
 
