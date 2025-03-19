@@ -4,12 +4,15 @@ import pygame
 pygame.init()
 screen = pygame.display.set_mode((1000,800))
 pygame.display.set_caption("Sandys House")
+clock = pygame.time.Clock() #handles FPS
 BLUE = (3, 165, 252)
 
 #SandyChar Class
 
 
 #Sandy House Class
+self.HouseImage = pygame.image.load("New Piskel.png").convert_alpha()
+pygame.Surface.set_colorkey (self.HouseImage, [255,0,255])
 def collision(bx, by, px, py): #bx, by is mouse, px, py is house position
     print(bx, by, px, py)
     
@@ -18,6 +21,8 @@ def collision(bx, by, px, py): #bx, by is mouse, px, py is house position
     else: 
         return False
 
+def draw(self, screen):
+    screen.blit(self.HouseImage, (self.xpos, self.ypos))
 running = True
 while running: #game loop##########################################################
     
